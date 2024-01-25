@@ -1,1 +1,50 @@
+import java.util.Scanner;
 
+public class exercicio {
+    public static void main(String[] args) {
+        double saldo = 2500, recebe = 0, transferir = 0;
+        int opcao = 0;
+        Scanner leitura = new Scanner(System.in);
+
+        //dados do usuario
+        System.out.println("Dados iniciais do cliente\n");
+        System.out.println("Nome: Rafael Martignago Palmito");
+        System.out.println("saldo inicial: " + saldo);
+        System.out.println("\n");
+        //possiveis opções para realizar uma ação
+        System.out.println("Operações\n");
+
+
+        while (opcao != 4) {
+            System.out.println("1-consultar saldo");
+            System.out.println("2-receber valor");
+            System.out.println("3-transferir valor");
+            System.out.println("4-sair\n");
+
+            System.out.println("Escolha uma opção: ");
+            opcao = leitura.nextInt();
+
+            //mostra o saldo atual
+            if (opcao == 1) {
+                System.out.println("Seu saldo atual: " + saldo);
+
+            } else if (opcao == 2) {
+                System.out.println("Quanto voce ira receber: ");
+                recebe = leitura.nextDouble();
+                saldo += recebe;
+                System.out.println("Seu saldo atualizado: " + saldo);
+                recebe = 0;
+            } else if (opcao == 3) {
+                System.out.println("Quanto voce ira transferir: ");
+                transferir = leitura.nextDouble();
+                saldo -= transferir;
+                System.out.println("Novo saldo: " + saldo);
+                transferir = 0;
+            } else if (opcao == 4) {
+                System.out.println("obrigado por usar nosso banco");
+            }// caso digite um numero diferente desses 4
+            else if (opcao != 1 || opcao != 2 || opcao != 3 || opcao != 4) {
+                System.out.println("opção invalida");
+            }
+        }
+    }
